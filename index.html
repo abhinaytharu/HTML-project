@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Dev Basics</title>
+
+    <!-- Prism.js CSS for syntax highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Optional: Add Prism.js JavaScript for code highlighting -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/prism.min.js"></script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400..800&family=Baloo+Bhai+2:wght@400..800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+    </style>
+</head>
+
+<body>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.8/clipboard.min.js"></script>
+
+    <!-- Navigation Bar -->
+    <div class="nav-bar">
+        <div class="logo">Web Dev Basics</div>
+        <div class="menu-btn">&#9776;</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#html">HTML</a></li>
+            <li><a href="#css">CSS</a></li>
+            <li><a href="#javascript">JavaScript</a></li>
+            <li><a href="#resources">Resources</a></li>
+        </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <h1>Learn Web Development!</h1>
+        <p>Start your journey with HTML, CSS, and JavaScript.</p>
+        <a href="#html" class="btn ripple-btn">Get Started</a>
+    </section>
+
+    <!-- HTML Section -->
+    <section id="html" class="content-section">
+        <h2>Introduction to HTML</h2>
+        <p>HTML (HyperText Markup Language) is the standard language for creating web pages. It defines the structure of
+            web pages using elements called tags.</p>
+
+        <h3>Basic Structure</h3>
+        <p>Every HTML page has a basic structure:</p>
+
+        <!-- Code Block with Copy Button -->
+        <div class="code-container">
+            <button class="copy-btn" data-clipboard-target="#html-code">Copy</button>
+            <pre><code id="html-code" class="language-markup">
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;Page Title&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;h1&gt;This is a Heading&lt;/h1&gt;
+        &lt;p&gt;This is a paragraph.&lt;/p&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+            </code></pre>
+        </div>
+
+        <p>Tags are the building blocks of HTML, such as &lt;h1&gt;, &lt;p&gt;, &lt;div&gt;, etc.</p>
+    </section>
+
+    <!-- JavaScript to enable Prism highlighting -->
+    <script>
+        Prism.highlightAll();
+        
+        // Initialize Clipboard.js for Copy Button
+        const clipboard = new ClipboardJS('.copy-btn');
+
+        // Show feedback when copied
+        clipboard.on('success', function (e) {
+            alert('Code copied to clipboard!');
+            e.clearSelection();
+        });
+
+        // Handle errors
+        clipboard.on('error', function (e) {
+            alert('Failed to copy code. Please try again.');
+        });
+    </script>
+
+</body>
+
+</html>
