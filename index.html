@@ -46,8 +46,7 @@
     <!-- HTML Section -->
     <section id="html" class="content-section">
         <h2>Introduction to HTML</h2>
-        <p>HTML (HyperText Markup Language) is the standard language for creating web pages. It defines the structure of
-            web pages using elements called tags.</p>
+        <p>HTML (HyperText Markup Language) is the standard language for creating web pages. It defines the structure of web pages using elements called tags.</p>
 
         <h3>Basic Structure</h3>
         <p>Every HTML page has a basic structure:</p>
@@ -71,7 +70,7 @@
         <p>Tags are the building blocks of HTML, such as &lt;h1&gt;, &lt;p&gt;, &lt;div&gt;, etc.</p>
     </section>
 
-    <!-- JavaScript to enable Prism highlighting and Hamburger Menu -->
+    <!-- JavaScript to enable Prism highlighting -->
     <script>
         Prism.highlightAll();
 
@@ -84,7 +83,7 @@
             e.clearSelection();
         });
 
-        // Handle errors
+        // Handle errors (in case something goes wrong)
         clipboard.on('error', function (e) {
             alert('Failed to copy code. Please try again.');
         });
@@ -93,8 +92,25 @@
         const menuBtn = document.querySelector(".menu-btn");
         const navLinks = document.querySelector(".nav-links");
 
+        // Toggle the nav menu on hamburger click
         menuBtn.addEventListener("click", () => {
             navLinks.classList.toggle("active");
+        });
+
+        // Close the menu if a link is clicked
+        const navItems = document.querySelectorAll(".nav-links a");
+
+        navItems.forEach(item => {
+            item.addEventListener("click", () => {
+                navLinks.classList.remove("active");
+            });
+        });
+
+        // Optional: Close menu if clicking anywhere outside the nav
+        window.addEventListener("click", (e) => {
+            if (!menuBtn.contains(e.target) && !navLinks.contains(e.target)) {
+                navLinks.classList.remove("active");
+            }
         });
     </script>
 </body>
